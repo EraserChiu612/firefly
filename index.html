@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Firefly</title>
+</head>
+
+<body>
+    <div id="firefly">
+        <!-- <img src="/images/firefly.png" alt="firefly"> -->
+        <div class="halo"></div>
+        <div class="halo"></div>
+        <div class="halo"></div>
+    </div>
+    <script src="js/Firefly.js"></script>
+    <script>
+        const firefly = document.querySelector('#firefly');
+        const myFireFly = new Firefly(firefly);
+        myFireFly.diameter = parseInt(Firefly.getCssValue(firefly, 'width'));
+
+        const halos = document.querySelectorAll('.halo');
+
+        document.addEventListener('mousemove', e => {
+            myFireFly.mouseX = e.clientX
+            myFireFly.mouseY = e.clientY
+
+        })
+
+        myFireFly.delayMotion();
+
+    </script>
+
+</body>
+
+</html>
